@@ -6,33 +6,45 @@ public class A
 
     public static void main(String[] args)
     {
-        double kursDolarBuy = 3.7626;
-        double kursDolarSell = 3.7921;
 
-        double kursEuroBuy = 4.3027;
-        double kursEuroSell = 3.3221;
-
-        double kursRubelBuy = 0.0533;
-        double kursRubelSell = 0.0618;
-
-        double KursBuy=0.0;
-        double KursSell=0.0;
 
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
+            double KursBuy=0.0;
+            double KursSell=0.0;
+
+            double kursDolarBuy = 3.7626;
+            double kursDolarSell = 3.7921;
+
+            double kursEuroBuy = 4.3027;
+            double kursEuroSell = 4.3221;
+
+            double kursRubelBuy = 0.0533;
+            double kursRubelSell = 0.0618;
+
+
+
             System.out.print("Podaj walutę(Dolar:$, Euro:€, Rubel:R): ");
             String currency = br.readLine();
+            System.out.println(" '"+currency+"' ");
 
-            if (currency =="S") {
-                KursBuy = kursDolarBuy;
-                KursSell = kursDolarSell;
-            } else if (currency == "€") {
-                KursBuy = kursEuroBuy;
-                KursSell = kursEuroSell;
-            } else if (currency == "R") {
-                KursBuy = kursRubelBuy;
-                KursSell = kursRubelSell;
+            switch (currency) {
+                case "$":
+                    KursBuy = kursDolarBuy;
+                    KursSell = kursDolarSell;
+                    break;
+                case "€":
+                    KursBuy = kursEuroBuy;
+                    KursSell = kursEuroSell;
+                    break;
+                case "R":
+                    KursBuy = kursRubelBuy;
+                    KursSell = kursRubelSell;
+                    break;
+                default:
+                    System.out.println("Niewłaściwa waluta");
+                    break;
             }
 
             System.out.print("Podaj wartość:");
@@ -44,12 +56,12 @@ public class A
 
         catch(IOException e1)
         {
-            System.out.println("wyjatek operacji wejscia/wyjscia");
+            System.out.println("Wyjatek operacji wejscia/wyjscia");
         }
 
         catch(NumberFormatException e2)
         {
-            System.out.println("nieprawidlowy format liczby");
+            System.out.println("Nieprawidlowy format liczby");
         }
     }
 }
