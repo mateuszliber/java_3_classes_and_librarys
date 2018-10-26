@@ -10,7 +10,7 @@ public class A
 
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
+            // zdupy
             double KursBuy=0.0;
             double KursSell=0.0;
 
