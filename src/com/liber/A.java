@@ -51,10 +51,16 @@ public class A
             String valueStr = br.readLine();
             double value = Double.parseDouble(valueStr);
 
+            // Zaokrąglenie do 2 miejsca po przecinku:
+            java.text.DecimalFormat df=new java.text.DecimalFormat(); //tworzymy obiekt DecimalFormat
+            df.setMaximumFractionDigits(2); //dla df ustawiamy największą ilość miejsc po przecinku
+            df.setMinimumFractionDigits(2); //dla df ustawiamy najmniejszą ilość miejsc po przecinku
+
+
             if(condition.equals("1")) {
-                System.out.println("Wartość "+value+" "+currency+"; Zakup: " + KursBuy*value + " PLN, Sprzedaż: " + KursSell*value + " PLN");
+                System.out.println("Wartość "+value+" "+currency+"; Zakup: " + df.format(KursBuy*value) + " PLN, Sprzedaż: " + df.format(KursSell*value) + " PLN");
             } else if(condition.equals("2")) {
-                System.out.println("Wartość "+value+" PLN; Zakup: "+value/KursBuy+" "+currency+", Sprzedaż: "+value/KursSell+" "+currency);
+                System.out.println("Wartość "+value+" PLN; Zakup: "+df.format(value/KursBuy)+" "+currency+", Sprzedaż: "+df.format(value/KursBuy)+" "+currency);
             } else {
                 System.out.println("Niewłaściwe id operacji");
             }
