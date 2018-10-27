@@ -3,14 +3,12 @@ import java.io.*;
 
 public class A
 {
-
     public static void main(String[] args)
     {
-
-
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-            // zdupy
+
+            /** Definicja zmiennych walutowych*/
             double KursBuy=0.0;
             double KursSell=0.0;
 
@@ -23,11 +21,13 @@ public class A
             double kursRubelBuy = 0.0533;
             double kursRubelSell = 0.0618;
 
+            //W jakiej formie wyświetlić
+            System.out.print("(PLN na inną walutę - 1, inna waluta na PLN - 2)?: ");
+            String condition = br.readLine();
 
-
+            //Jakie wauty brać pod uwagę
             System.out.print("Podaj walutę(Dolar:$, Euro:€, Rubel:R): ");
             String currency = br.readLine();
-            System.out.println(" '"+currency+"' ");
 
             switch (currency) {
                 case "$":
@@ -47,11 +47,17 @@ public class A
                     break;
             }
 
-            System.out.print("Podaj wartość:");
+            System.out.print("Podaj wartość: ");
             String valueStr = br.readLine();
             double value = Double.parseDouble(valueStr);
 
-            System.out.println("Zakup: "+KursBuy*value+" Sprzedaż: "+KursSell*value+" "+currency);
+            if(condition.equals("1")) {
+                System.out.println("Wartość "+value+" "+currency+"; Zakup: " + KursBuy*value + " PLN, Sprzedaż: " + KursSell*value + " PLN");
+            } else if(condition.equals("2")) {
+                System.out.println("Wartość "+value+" PLN; Zakup: "+value/KursBuy+" "+currency+", Sprzedaż: "+value/KursSell+" "+currency);
+            } else {
+                System.out.println("Niewłaściwe id operacji");
+            }
         }
 
         catch(IOException e1)
