@@ -35,5 +35,9 @@ public class Main
         boolean ifIntersects = obj51.intersects(obj52);
         System.out.println("Czy się przecinają: "+ ifIntersects);
 
+        //pdpkt 3.7
+        Point pointTest = new Point(1, 1);
+        com.liber.Rectangle rectangleInfoTest = new com.liber.Rectangle(3, 4);
+        ((com.liber.Rectangle) rectangleInfoTest).save("plik.txt");
     }
 }
